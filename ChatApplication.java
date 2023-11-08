@@ -1,8 +1,9 @@
 import java.io.*;
 import java.util.*;
+import ChatExceptions.*;
 
-public class ChatApplication {
-
+public class ChatApplication extends CustomExceptionHandler {
+    static SystemExceptionHandler systemExceptionHandler = new SystemExceptionHandler();
     private static final String PUBLIC_CHAT_FILE = "C://Users//abdul//Desktop//java_backend//java_for_backend//practice//files//Eurakarte.log";
     private static final String PRIVATE_CHAT_FILE = "C://Users//abdul//Desktop//java_backend//java_for_backend//practice//files//Donut[AFK].log";
     private static final String FRIENDS_LIST_FILE = "C://Users//abdul//Desktop//java_backend//java_for_backend//practice//files//friends.list";
@@ -65,13 +66,13 @@ public class ChatApplication {
                 }
             }
         } catch (Exception e) {
-            System.out.println("Your choice is => " + e.getMessage());
+            systemExceptionHandler.systemException(e);
         }
-
     }
 }
 
-class PublicChat {
+
+class PublicChat extends CustomExceptionHandler {
     private final String fileName;
 
     public PublicChat(String fileName) {
@@ -92,8 +93,10 @@ class PublicChat {
             while ((line = reader.readLine()) != null) {
                 System.out.println(line);
             }
-        } catch (IOException e) {
-            System.out.println("Error reading public chat file: " + e.getMessage());
+        } catch (CustomExceptionHandler.ChatException e) {
+            CustomExceptionHandler.chatExceptionHandler(e);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
         }
     }
 }
@@ -108,8 +111,10 @@ class PrivateChat {
     public void write(String recipient, String message) {
         try (PrintWriter writer = new PrintWriter(new FileWriter(fileName, true))) {
             writer.println(recipient + " => " + message);
-        } catch (IOException e) {
-            System.out.println("Error writing to private chat file: " + e.getMessage());
+        } catch (CustomExceptionHandler.ChatException e) {
+            CustomExceptionHandler.chatExceptionHandler(e);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
         }
     }
 
@@ -119,8 +124,10 @@ class PrivateChat {
             while ((line = reader.readLine()) != null) {
                 System.out.println(line);
             }
-        } catch (IOException e) {
-            System.out.println("Error reading private chat file: " + e.getMessage());
+        } catch (CustomExceptionHandler.ChatException e) {
+            CustomExceptionHandler.chatExceptionHandler(e);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
         }
     }
 }
@@ -135,8 +142,10 @@ class FriendsList {
     public void add(String friend) {
         try (PrintWriter writer = new PrintWriter(new FileWriter(fileName, true))) {
             writer.println(friend);
-        } catch (IOException e) {
-            System.out.println("Error writing to friends list file: " + e.getMessage());
+        } catch (CustomExceptionHandler.ChatException e) {
+            CustomExceptionHandler.chatExceptionHandler(e);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
         }
     }
 
@@ -147,8 +156,10 @@ class FriendsList {
             while ((line = reader.readLine()) != null) {
                 friends.add(line);
             }
-        } catch (IOException e) {
-            System.out.println("Error reading from friends list file: " + e.getMessage());
+        } catch (CustomExceptionHandler.ChatException e) {
+            CustomExceptionHandler.chatExceptionHandler(e);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
         }
         return friends;
     }
