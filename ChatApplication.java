@@ -2,6 +2,15 @@ import java.io.*;
 import java.util.*;
 import ChatExceptions.*;
 
+/*
+* ChatApplication class contains the main method and serves as the entry point for the chat application. 
+* It initializes instances of PublicChat, PrivateChat, and FriendsList classes. It's a menu-driven 
+* interface for users to send messages to public and private chats, add friends, and view chat messages and friends list. 
+* It handles exceptions using the CustomExceptionHandler and SystemExceptionHandler classes.
+* @author  Abdulwasse Yenus
+* @version 1.0
+* @since   11/16/2023
+*/
 public class ChatApplication extends CustomExceptionHandler {
     static SystemExceptionHandler systemExceptionHandler = new SystemExceptionHandler();
     private static final String PUBLIC_CHAT_FILE = "C://Users//abdul//Desktop//java_backend//java_for_backend//practice//files//Eurakarte.log";
@@ -71,7 +80,18 @@ public class ChatApplication extends CustomExceptionHandler {
     }
 }
 
-
+/*
+ * PublicChat class is responsible for handling public chat functionality. It
+ * allows users to write messages to a public chat file and read/display
+ * messages from the public chat file. The CustomExceptionHandler class is used
+ * for handling exceptions in the program.
+ * 
+ * @author Abdulwasse Yenus
+ * 
+ * @version 1.0
+ * 
+ * @since 11/16/2023
+ */
 class PublicChat extends CustomExceptionHandler {
     private final String fileName;
 
@@ -101,6 +121,18 @@ class PublicChat extends CustomExceptionHandler {
     }
 }
 
+/*
+ * PrivateChat class manages the private chat feature. It enables users to write
+ * messages to a specific recipient in a private chat file and read/display
+ * messages from the private chat file. The CustomExceptionHandler class is used
+ * for handling exceptions in the program.
+ * 
+ * @author Abdulwasse Yenus
+ * 
+ * @version 1.0
+ * 
+ * @since 11/16/2023
+ */
 class PrivateChat {
     private final String fileName;
 
@@ -132,6 +164,17 @@ class PrivateChat {
     }
 }
 
+/*
+ * FriendsList class handles the management of a user's friends list. It allows
+ * users to add friends to the list and read/display the list of friends. The
+ * CustomExceptionHandler class is used for handling exceptions in the program.
+ * 
+ * @author Abdulwasse Yenus
+ * 
+ * @version 1.0
+ * 
+ * @since 11/16/2023
+ */
 class FriendsList {
     private final String fileName;
 
