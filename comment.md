@@ -1,13 +1,16 @@
 Here's my feedback:
 
 Although , there are many ways to design the classes , this is what I expect you when you design your classes:
+
+
 1.
 Create Interface or Abstract class ---Chat
+
 Add abstract methods: public void write(String message)
                     : public List<String> read(String url)
 					: public void display(List messages)
 					: Add any other methods if you have more
-2.					
+3.					
 Extend or implement Chat ---> create PublicChat	class		
 
 3.
