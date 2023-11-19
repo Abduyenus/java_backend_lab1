@@ -15,9 +15,12 @@ Extend or implement Chat ---> create PublicChat	class
 
 3.
 Extend PublicChat or implement Chat       --->  create PrivateChat class
- Add Method(you dont have to create a separate class for this unless you feel obliged) :public List<String> getFriends(String name)  
-
-4. You normally have two classes for SystemExceptionHandler and CustomExceptionHandler. So , you shouldnt extend one of these
+ Add Method(you dont have to create a separate class for this unless you feel obliged) :public List<String> getFriends(String name)
+4.  Add Class Friend.
+   Add method: addFriend()
+             : updateFriend()
+             : deleteFriend()
+5. You normally have two classes for SystemExceptionHandler and CustomExceptionHandler. So , you shouldnt extend one of these
 in your Class but create instances of them and write your logs.
 
 Check this link for a good example of how to design your classes, OO Design
