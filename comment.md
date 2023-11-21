@@ -1,12 +1,12 @@
 Here's my feedback:
 
-Although , there are many ways to design the classes , this is what I expect you when you design your classes:
+Although there are many ways to design the classes , this is what I expect you when you design your classes:
 
 
 1.
 Create Interface or Abstract class ---Chat
 
-Add abstract methods: public void write(String message)
+Add abstract methods: public void write(String message, String url)
                     : public List<String> read(String url)
 					: public void display(List messages)
 					: Add any other methods if you have more
@@ -20,7 +20,7 @@ Extend PublicChat or implement Chat       --->  create PrivateChat class
    Add method: addFriend()
              : updateFriend()
              : deleteFriend()
-5. You normally have two classes for SystemExceptionHandler and CustomExceptionHandler. So , you shouldnt extend one of these
+5. You normally have two classes for SystemExceptionHandler and CustomExceptionHandler.I expect these classes to inherit one of Exception classes. So , you shouldnt extend one of these
 in your Class but create instances of them and write your logs.
 
 Check this link for a good example of how to design your classes, OO Design
